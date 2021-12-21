@@ -19,8 +19,7 @@ function SamplePrevArrow(props)
   return <div className={className} style={{ ...style, display: "block", background: "red" }} onClick={onClick} />;
 }
 
-export default function SimpleSlider({ showSideBar })
-{
+export default function SimpleSlider(){
   useEffect(() =>
   {
     let items = document.querySelectorAll('.slick-slide.slick-active');
@@ -131,7 +130,7 @@ export default function SimpleSlider({ showSideBar })
       </TabList>
       {/* {tabs.map((item, i) => (<TabPanel key={i}>{item.content}</TabPanel>))} */}
       {tabs.map((item, i) => (<TabPanel key={i}>
-        <Video showSideBar={showSideBar} />
+        <Video />
       </TabPanel>))}
     </Tabs>
   );

@@ -10,6 +10,7 @@
         overflow-y: scroll;
         overflow-x: hidden;
         max-height: 580px;
+        // transition: .3s ease all;
         &::-webkit-scrollbar {
             width: 7px;
         }

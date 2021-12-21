@@ -5,15 +5,13 @@ import SimpleSlider from './SimpleSlider';
 
 export default function Main({showSideBar , haddleIconsClick}) {
     return (
-        <>
-            <Router>
-                <Switch>
-                    <Route path="/" exact>
-                        <SimpleSlider showSideBar={showSideBar} haddleIconsClick={haddleIconsClick} />
-                    </Route>
-                    <Route path="/explore" component={About} />
-                </Switch>
-            </Router>
-        </>
+        <Switch>
+            <Route path="/" exact render={(rprops) =>
+            {
+                return <SimpleSlider {...rprops} showSideBar={showSideBar} haddleIconsClick={haddleIconsClick} />
+            }}>
+            </Route>
+            <Route path="/explore" component={About} />
+        </Switch>
     )
 }

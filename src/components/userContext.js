@@ -1,8 +1,8 @@
 import React from "react";
 
-const UserContext = React.createContext()
+const {Provider, Consumer} = React.createContext()
 
-const UserProvider = UserContext.Provider
-const UserConsumer = UserContext.Consumer
+const UserProvider = Provider
+const UserConsumer = Consumer
 
 export { UserProvider, UserConsumer }
