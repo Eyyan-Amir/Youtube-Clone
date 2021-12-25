@@ -3,6 +3,7 @@
     &.less{
         flex: 0 0 65px;
         max-width: 65px;
+        transition: .4s ease-in-out;
     }
     &.show{
         flex: 0 0 190px;
@@ -10,7 +11,7 @@
         overflow-y: scroll;
         overflow-x: hidden;
         max-height: 580px;
-        // transition: .3s ease all;
+        transition: .4s ease-in-out;
         &::-webkit-scrollbar {
             width: 7px;
         }
