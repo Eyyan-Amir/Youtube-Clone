@@ -3,6 +3,25 @@
 	margin: 0%;
 	box-sizing: border-box;
 }
+@mixin truncate($truncation-boundary) {
+    max-width: $truncation-boundary;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+@mixin truncate($lines,
+$lh: 1.2,
+$spacer:0) {
+    line-height: $lh;
+    max-height: $lh * $lines + $spacer + em;
+    // overflow: hidden;
+    text-overflow: ellipsis;
+    text-overflow: -o-ellipsis-lastline;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 .b-bottom {
 	border-bottom: 1px solid #eee;
 	margin-bottom: 10px;
@@ -116,49 +135,83 @@
 }
 .grid{
 	display: grid;
-	grid-gap: 10px;
-	grid-template-columns: 320px 320px 320px 320px;
-	place-items: center;
+	grid-gap: 20px;
+	grid-template-columns: repeat(4,1fr);
+	margin: 20px 16px 0 16px;
 	margin-top: 20px;
-	&.open{
-		grid-template-columns: 285px 285px 285px 285px;
-		.video{
-			.video__wrapper{
-				width: 250px;
-				video{
-					width: 100%;
-				}
-			}
-		}
-	}
+	margin-right: 16px;
 	.video{
-		.video__wrapper{
-			width: 280px;
-			video{
+		position: relative;
+		overflow: hidden;
+		.image{
+			overflow: hidden;
+			img{
 				width: 100%;
+				height: 100%;
+				transition: .3s ease-in-out;
+				&:hover{
+					transform: scale(1.2);
+					cursor: pointer;
+				}
 			}
 		}
 		.lower-content{
 			display: flex;
 			margin-top: 10px;
 			.logo{
-				width: 30px;
+				height: 40px;
+				width: 40px;
+				min-width: 40px;
 				overflow: hidden;
-				height: 30px;
 				border-radius: 50%;
 				img{
 					width: 100%;
 					height: 100%;
 					object-fit: cover;
+					object-position: top;
 				}
 			}
 			.title{
-				margin-left: 10px;
+				text-align: left;
+				margin-left: 16px;
 				h4{
-					font-size: 20px;
-					font-weight: 400;
+					font-size: 18px;
+					font-weight: 500;
+					@include truncate(2);
+					margin: 0;
+				}
+				span{
+					display: block;
+					margin-top: 8px;
+					font-size: 14px;
+					color: gray;
 				}
 			}
 		}
 	}
+}
+
+.skeltonClass{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-left: 4px;
+	.video{
+		margin-right: 20px;
+		margin-bottom: 16px;
+		.lower-content{
+			margin-top: 16px;
+			display: flex;
+			align-items: flex-start;
+			.logo{
+				flex: 0 0 40px;
+				max-width: 40px;
+				margin-right: 16px;
+			}
+			.title{
+				flex: 1;
+			}
+		}
+	}
+
 }

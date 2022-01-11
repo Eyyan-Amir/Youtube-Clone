@@ -14,7 +14,7 @@ function App() {
 		handleIconClicked(index);
 	};
 
-	const props = { handleSideBar, showSideBar };
+	const props = { showSideBar, handleSideBar };
 	// let Comp = components[iconClickedIndex]
 	return (
 		<div className='App'>
