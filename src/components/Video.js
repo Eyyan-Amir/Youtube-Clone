@@ -31,14 +31,6 @@ export default function Video() {
 			});
 	};
 
-	let classes = [
-		{
-			title: {
-				fontSize: "12px",
-				color: "red",
-			},
-		},
-	];
 	return (
 		<>
 			{loading && <BaseSkeloton type='video' count={8} />}
